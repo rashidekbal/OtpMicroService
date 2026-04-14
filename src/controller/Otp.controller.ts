@@ -16,7 +16,7 @@ export const otpController=async(req:express.Request,res:express.Response)=>{
         await sendOtp(email,company,otp);
         await addOtpRecord(email,optHash,currentTimeSecond);
        
-        res.status(200).json(new ApiResponse(200,otp));
+        res.status(200).json(new ApiResponse(200,"success"));
     } catch (error) {
         console.log(error);
         res.status(500).json(new ApiResponse(500,"Oops something went wrong..."))
