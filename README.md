@@ -4,6 +4,8 @@ This is a lightweight and secure Node.js internal microservice that handles One-
 
 Designed to be used alongside client SDKs (like `otpMicroServiceSdk`), it acts as a centralized authentication layer providing generic OTP capabilities to any downstream application.
 
+🌐 **Official Website:** [https://eazy-otp-official.vercel.app/](https://eazy-otp-official.vercel.app/)
+
 ## Features
 
 - **OTP Generation & Mailing:** Safely generates 6-digit OTPs and dispatches them via SMTP using HTML templates.
