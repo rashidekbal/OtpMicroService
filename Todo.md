@@ -4,6 +4,6 @@ add mongo route to verufy otp ✔️
  -check for opt validity if ok send ok else send not ok ✔️
  -on successfull verification delete the record ✔️
 for sending ✔️
-    -delete any existing otp
+    -delete any existing otp ✔️
     -save otp in mongo db with generated time in second ✔️
     

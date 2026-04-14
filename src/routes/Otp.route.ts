@@ -7,5 +7,4 @@ import { verifyOtpController } from "../controller/VerifyController.js";
 const router:Router=Router();
 router.route("/sendOtp").post(verifyApiKey,oldRecordInvalidatorMiddleware,otpController);
 router.route("/verify").post(verifyApiKey,verifyOtpController);
-
 export default router;

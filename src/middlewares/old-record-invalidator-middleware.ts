@@ -1,5 +1,5 @@
 import Express, { NextFunction } from "express"
-import otpModel from "../model/otp.model.js"
+
 import ApiResponse from "../constants/ApiResponse.js";
 import { removeExistingEmailData } from "../repo/opt-collection-operations-handler.js";
 

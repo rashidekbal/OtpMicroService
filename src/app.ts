@@ -7,5 +7,6 @@ app.use(cors({origin:"*"}));
 app.get("/",(req,res)=>{
     res.send("<h1>welcome to the page</h1>");
 })
-app.use("/api/v1/otp",optRouter)
+app.use("/api/v1/otp",optRouter);
+
 export default app;
