@@ -1,7 +1,7 @@
 import Express  from "express";
 import { isValidEmail } from "../utils/Regex.js";
 import ApiResponse from "../constants/ApiResponse.js";
-import sendEmailOtp from "../services/email.service.js";
+import sendEmailOtp, { sendApiKey } from "../services/email.service.js";
 import { generateOtp6digit } from "../utils/OtpGenerator.js";
 import { hashOtp, verifyHash } from "../utils/bcrypt-util.js";
 import { addOtpRecord, deleteOtpRecord, getOtpRecord } from "../repo/opt-collection-operations-handler.js";
@@ -55,7 +55,6 @@ const generateApiKeyController=async(req:Express.Request,res:Express.Response)=>
         if(!organization)return res.status(400).json(new ApiResponse(400,"please enter a valid organization info"));
         const apiKey=uuid();
         const currentTimeSecond=getCurrentTime();
-
         const apiKeyData:Omit<apiKeyObject,"_id">={
             email,
             organization,
@@ -64,7 +63,8 @@ const generateApiKeyController=async(req:Express.Request,res:Express.Response)=>
             active:true
         }
         await addNewApiKey(apiKeyData)
-        return res.status(201).json(new ApiResponse(201,{apiKey:apiKey}));
+        await sendApiKey(email,organization,apiKey);
+        return res.status(200).json(new ApiResponse(200,"success"));
     } catch (error) {
         console.log(error);
         return res.status(500).json(new ApiResponse(500,"something went wrong ...."))
