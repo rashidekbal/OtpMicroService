@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 export interface apiKeyObject{
+    _id:mongoose.Types.ObjectId,
     email:string,
     organization:string,
     apiKey:string,
