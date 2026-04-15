@@ -63,7 +63,8 @@ const generateApiKeyController=async(req:Express.Request,res:Express.Response)=>
             active:true
         }
         await addNewApiKey(apiKeyData)
-        await sendApiKey(email,organization,apiKey);
+        let result=await sendApiKey(email,organization,apiKey);
+        console.log(result)
         return res.status(200).json(new ApiResponse(200,"success"));
     } catch (error) {
         console.log(error);

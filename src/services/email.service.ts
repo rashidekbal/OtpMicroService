@@ -143,6 +143,7 @@ async function sendApiKey(email:Address,companyName:string,apikey:string){
 </body>
 </html>`
   }
+   return nodemailer.sendMail(mailOptions);
 
 }
 export default sendEmailOtp
